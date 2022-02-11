@@ -1,0 +1,54 @@
+<!doctype html>
+<html>
+  <head>
+    <title>
+      My first jQuery slideshow
+    </title>
+     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+     <script>
+      var currentSlide = 0;
+      var goPrev = function(){
+        $("img").fadeOut();
+        currentSlide = (currentSlide - 1) % 5;
+        if(currentSlide < 0){
+          currentSlide = 5 + currentSlide;
+        }
+        $("img:nth-of-type(" + (currentSlide+1) + ")").stop().fadeIn(1000);
+        return;
+      }
+
+      var goNext = function(){
+        $("img").fadeOut();
+        currentSlide = (currentSlide + 1) % 5;
+        $("img:nth-of-type(" + (currentSlide+1) + ")").stop().fadeIn(1000);
+        return;
+      }
+     </script>
+     <style>
+      img{
+        position: absolute;
+      }
+      #prev{
+        position: fixed;
+        bottom: 10px;
+        left: 10px;
+      }
+      #next{
+        position: fixed;
+        bottom: 10px;
+        right: 10px;
+      }
+     </style>
+  </head>
+
+  <body onload='$("img").fadeOut(0);$("img:nth-of-type(1)").fadeIn()'>
+  <img src='https://upload.wikimedia.org/wikipedia/commons/thumb/a/aa/White-cheeked_Honeyeater_-_Maddens_Plains.jpg/300px-White-cheeked_Honeyeater_-_Maddens_Plains.jpg'>
+  <img src='https://upload.wikimedia.org/wikipedia/commons/thumb/c/c4/Puffin_%28Fratercula_arctica%29.jpg/300px-Puffin_%28Fratercula_arctica%29.jpg'>
+  <img src='https://upload.wikimedia.org/wikipedia/commons/thumb/2/27/Pardalotus_punctatus_-_Glen_Davis.jpg/450px-Pardalotus_punctatus_-_Glen_Davis.jpg'>
+  <img src='https://upload.wikimedia.org/wikipedia/commons/thumb/6/60/Northern_masked_weaver_%28Ploceus_taeniopterus%29_female.jpg/200px-Northern_masked_weaver_%28Ploceus_taeniopterus%29_female.jpg'>
+  <img src='https://upload.wikimedia.org/wikipedia/commons/thumb/6/6d/Spotted_dove_%28Spilopelia_chinensis_suratensis%29.jpg/243px-Spotted_dove_%28Spilopelia_chinensis_suratensis%29.jpg'>
+  <button onclick='goPrev()' id='prev'> Prev </button>
+  <button onclick='goNext()' id='next'> Next </button>
+
+  </body>
+</html>

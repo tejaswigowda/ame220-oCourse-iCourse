@@ -1,0 +1,70 @@
+<!doctype html>
+<html>
+  <head>
+    <title>
+      My first jQuery slideshow
+    </title>
+     <script>
+      var currentSlide = 0;
+
+      var start = function(){
+        //$("img").fadeOut(0);
+        //$("img:nth-of-type(1)").fadeIn()
+        goToCurrentSlide();
+      }
+      
+      var goToCurrentSlide = function(){
+        var allImgObjs = document.getElementsByTagName("img")
+        for(var i = 0; i < allImgObjs.length; i++){
+          if(i==currentSlide){
+            allImgObjs[i].style.display = "block";
+          }
+          else{
+            allImgObjs[i].style.display = "none";
+          }
+        }
+      }
+
+      var goPrev = function(){
+        currentSlide = (currentSlide - 1) % 5;
+        if(currentSlide < 0){
+          currentSlide = 5 + currentSlide;
+        }
+        goToCurrentSlide();
+        return;
+      }
+
+      var goNext = function(){
+        currentSlide = (currentSlide + 1) % 5;
+        goToCurrentSlide();
+        return;
+      }
+     </script>
+     <style>
+      img{
+        position: absolute;
+      }
+      #prev{
+        position: fixed;
+        bottom: 10px;
+        left: 10px;
+      }
+      #next{
+        position: fixed;
+        bottom: 10px;
+        right: 10px;
+      }
+     </style>
+  </head>
+
+  <body onload='start()'>
+  <img src='https://upload.wikimedia.org/wikipedia/commons/thumb/a/aa/White-cheeked_Honeyeater_-_Maddens_Plains.jpg/300px-White-cheeked_Honeyeater_-_Maddens_Plains.jpg'>
+  <img src='https://upload.wikimedia.org/wikipedia/commons/thumb/c/c4/Puffin_%28Fratercula_arctica%29.jpg/300px-Puffin_%28Fratercula_arctica%29.jpg'>
+  <img src='https://upload.wikimedia.org/wikipedia/commons/thumb/2/27/Pardalotus_punctatus_-_Glen_Davis.jpg/450px-Pardalotus_punctatus_-_Glen_Davis.jpg'>
+  <img src='https://upload.wikimedia.org/wikipedia/commons/thumb/6/60/Northern_masked_weaver_%28Ploceus_taeniopterus%29_female.jpg/200px-Northern_masked_weaver_%28Ploceus_taeniopterus%29_female.jpg'>
+  <img src='https://upload.wikimedia.org/wikipedia/commons/thumb/6/6d/Spotted_dove_%28Spilopelia_chinensis_suratensis%29.jpg/243px-Spotted_dove_%28Spilopelia_chinensis_suratensis%29.jpg'>
+  <button onclick='goPrev()' id='prev'> Prev </button>
+  <button onclick='goNext()' id='next'> Next </button>
+
+  </body>
+</html>

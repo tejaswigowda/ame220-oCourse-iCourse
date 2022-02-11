@@ -1,0 +1,83 @@
+<!doctype html>
+<html>
+<head>
+<title>
+  Image Resizer
+</title>
+<style>
+  #imagePreview{
+      height: 300px;
+      width: 300px;
+      display: block;
+  }
+</style>
+<script src="jquery-1.11.3.js" type="text/javascript"></script>
+
+<script>
+var MAX_WIDTH = 100;
+var MAX_HEIGHT = 100;
+var imageUploaded = function()
+{
+   var file = $('#uploadImage').get(0);
+   if(file.files[0].type.split("/")[0].toLowerCase() != "image"){
+        alert("Incorrect file type -- Please ensure you are uploading an image file.");
+        return;
+   }
+   if ( file.files && file.files[0] && file.files[0].type.split("/")[0].toLowerCase() === "image") {
+        var FR = new FileReader();
+        FR.onload = function(e) {
+            var data = e.target.result;
+            var canvas = document.createElement("canvas");
+            var img = document.createElement("img");
+            img.onload= function(){
+                 var width = img.width;
+                 var height = img.height;
+                 var w2 = width;
+                 var h2 = height;
+
+                 if (width > height) {
+                     if (width > MAX_WIDTH) {
+                        h2 = height * MAX_WIDTH / width;
+                        w2 = MAX_WIDTH;
+                    }
+                 } else {
+                     if (height > MAX_HEIGHT) {
+                        w2 = width * MAX_HEIGHT / height;
+                        h2 = MAX_HEIGHT;
+                    }
+                }
+                canvas.width = w2;
+                canvas.height = h2;
+                var ctx = canvas.getContext("2d");
+                ctx.drawImage(img, 0, 0, w2, h2);
+                var base64St = canvas.toDataURL("image/png");
+                document.getElementById("imagePreview").src = base64St;
+                document.getElementById("imagePreview").style.height = MAX_HEIGHT + "px";
+                document.getElementById("imagePreview").style.width= MAX_WIDTH + "px";
+            }
+            img.src = data;
+        };  
+        FR.readAsDataURL( file.files[0] );
+   }
+}
+
+var selectChanged = function(){
+  MAX_WIDTH = MAX_HEIGHT = parseInt($("#theSelect").val()) 
+  imageUploaded();
+}
+
+</script>
+
+</head>
+
+<body>
+<input id='width' type='number' min=10 max=2000 value=300 onchange="selectChanged()">
+ X 
+<input id='height' type='number' min=10 max=2000 value=300 onchange="selectChanged()">
+
+  <input type="file" name="uploadImage" id="uploadImage" onchange="selectChanged()">
+  <img id="imagePreview">
+</body>
+
+
+</html>

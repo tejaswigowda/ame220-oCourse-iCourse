@@ -1,0 +1,138 @@
+<!doctype html>
+<html>
+<head>
+  <style>
+    body{
+      margin:0;
+      width: 100vw;
+      height: 100vh;
+    }
+    #frame{
+      width: 300px;
+      height: 300px;
+      border: 2px solid;
+      border-radius: 50%;
+      left: 50vw;
+      top: 50vh;
+      transform: translate(-50%, -50%);
+      position: absolute;
+      background: white;
+    }
+    #frame.night{
+      filter: invert(1);
+    }
+
+    .num{
+      height: 20px;
+      width: 2px;
+      background: black;
+      position: absolute;
+      left: 50%;
+      transform-origin: 0px 150px;
+    }
+    #num1{
+      transform: rotate(30deg);
+    }
+    #num2{
+      transform: rotate(60deg);
+    }
+    #num3{
+      transform: rotate(90deg);
+    }
+    #num4{
+      transform: rotate(120deg);
+    }
+    #num5{
+      transform: rotate(150deg);
+    }
+    #num6{
+      transform: rotate(180deg);
+    }
+    #num7{
+      transform: rotate(210deg);
+    }
+    #num8{
+      transform: rotate(240deg);
+    }
+    #num9{
+      transform: rotate(270deg);
+    }
+    #num10{
+      transform: rotate(300deg);
+    }
+    #num11{
+      transform: rotate(330deg);
+    }
+    .hand{
+      position: absolute;
+      left: 50%;
+      top: 50%;
+      transform-origin: 0 0;
+    }
+    #hour{
+      width: 120px;
+      height: 2px;
+      background: red;
+    }
+    #min{
+      width: 140px;
+      height: 2px;
+      background: blue;
+    }
+    #sec{
+      width: 150px;
+      height: 2px;
+      background: green;
+    }
+  </style>
+  <script>
+    var tz = window.location.hash.replace("#","") || "0";
+    tz = parseFloat(tz);
+
+    function renderClock()
+    {
+      var now = new Date();
+      var mssE = now.getTime();
+      now = new Date(mssE + now.getTimezoneOffset()*60*1000 + tz*60*60*1000);
+      var h = now.getHours();
+      var m = now.getMinutes();
+      var s = now.getSeconds();
+ //     console.log(h,m,s, tz, mssE);
+      if(!(h >=6 && h < 18)){
+        document.getElementById("frame").className = "night";
+      }
+      else{
+        document.getElementById("frame").className = "";
+      }
+      var sAng = (360/60)*s - 90;
+      document.getElementById("sec").style.transform = "rotate(" + sAng + "deg)"
+      var mAng = (360/60)*m - 90;
+      document.getElementById("min").style.transform = "rotate(" + mAng + "deg)"
+      var hAng = ((360/12)*h - 90) + (30 * m/60);
+      document.getElementById("hour").style.transform = "rotate(" + hAng + "deg)"
+    }
+  </script>
+</head>
+<body onload='renderClock();setInterval("renderClock()", 1000)'>
+
+<div id='frame'>
+  <div class='num' id='num1'> </div>
+  <div class='num' id='num2'> </div>
+  <div class='num' id='num3'> </div>
+  <div class='num' id='num4'> </div>
+  <div class='num' id='num5'> </div>
+  <div class='num' id='num6'> </div>
+  <div class='num' id='num7'> </div>
+  <div class='num' id='num8'> </div>
+  <div class='num' id='num9'> </div>
+  <div class='num' id='num10'> </div>
+  <div class='num' id='num11'> </div>
+  <div class='num' id='num12'> </div>
+
+  <div class='hand' id='hour'> </div>
+  <div class='hand' id='min'> </div>
+  <div class='hand' id='sec'> </div>
+</div>
+
+</body>
+</html>
