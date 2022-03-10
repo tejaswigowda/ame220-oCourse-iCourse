@@ -1,6 +1,6 @@
 # ame220 iCourse/oCourse
 
-Zoom (office hours): https://asu.zoom.us/j/6549858433
+Zoom (office hours): https://asu.zoom.us/j/6549858433 (M/W 9:30-10:30)
 
 Syllabus: https://github.com/tejaswigowda/ame220-oCourse-iCourse/blob/main/AME%20220%20(iCourse_oCourse).pdf
 
