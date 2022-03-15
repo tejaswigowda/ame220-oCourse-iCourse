@@ -1,3 +1,18 @@
+#Schedule
+
+| Assignment      | Due date | Points     |
+| :---        |    :----:   |          ---: |
+| A1      | Mar 21       | 10   |
+| A2   | Mar 28        | 15      |
+| A3  | Mar 28        | 15      |
+| A4   | Apr 4        | 15      |
+| A5   | Apr 11        | 15      |
+| A6   | Apr 18        | 15      |
+| A7   | Apr 25        | 15      |
+| Final   | May 2        | 10     |
+
+
+
 # Submission HOWTO
 
 1. Create a Github Repository for all your assignments in this class.
