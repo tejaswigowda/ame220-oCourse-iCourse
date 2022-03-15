@@ -1,4 +1,4 @@
-#Schedule
+# Schedule
 
 | Assignment      | Due date | Points     |
 | :---        |    :----:   |          ---: |
