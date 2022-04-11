@@ -47,9 +47,12 @@
     function start(){
       var hash = window.location.hash.replace("#","");
       allImages = hash.split(",");
+      
       if(allImages[allImages.length] == "sliding"){
         aniType = "sliding";
       }
+      allImages.pop();
+
       var markup = "";
       for(var i = 0; i < allImages.length; i++){
         markup += "<div class='slide' style='background-image:url(" + allImages[i] + ")'></div>"
