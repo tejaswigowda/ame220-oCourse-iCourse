@@ -1,0 +1,359 @@
+<!doctype hhtml>
+<html>
+<head>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
+</head>
+<body onload='start()'>
+      <a style='position:fixed;bottom:0;width:100%;' id='backButton' class="waves-effect waves-light btn modal-trigger blue" onclick="goBack()">Back</a>
+  <div id='tzContainer'>
+    <div id='tzList'>
+    </div>
+      <a style='position:fixed;bottom:0;display:block;width:300px' data-target="modal1" id='editButton' class="waves-effect waves-light btn modal-trigger" onclick="openDD()">Manage Timezones</a>
+  </div>
+  <div id='selectedClock'>
+  </div>
+
+
+   <!-- Modal Structure -->
+  <div id="modal1" class="modal">
+    <div class="modal-content">
+      <h4>Choose your Timezones</h4>
+      <p>
+
+ <select multiple name="timezone" id="timezone">
+    <option value="-12_0">(UTC-12:00) International Date Line West</option>
+    <option value="-11_1">(UTC-11:00) Coordinated Universal Time-11</option>
+    <option value="-10_2">(UTC-10:00) Hawaii</option>
+    <option value="-9_3">(UTC-09:00) Alaska</option>
+    <option value="-7_4">(UTC-08:00) Baja California</option>
+    <option value="-7_5">(UTC-07:00) Pacific Time (US &amp; Canada)</option>
+    <option value="-8_6">(UTC-08:00) Pacific Time (US &amp; Canada)</option>
+    <option value="-7_7">(UTC-07:00) Arizona</option>
+    <option value="-6_8">(UTC-07:00) Chihuahua, La Paz, Mazatlan</option>
+    <option value="-6_9">(UTC-07:00) Mountain Time (US &amp; Canada)</option>
+    <option value="-6_10">(UTC-06:00) Central America</option>
+    <option value="-5_11">(UTC-06:00) Central Time (US &amp; Canada)</option>
+    <option value="-5_12">(UTC-06:00) Guadalajara, Mexico City, Monterrey</option>
+    <option value="-6_13">(UTC-06:00) Saskatchewan</option>
+    <option value="-5_14">(UTC-05:00) Bogota, Lima, Quito</option>
+    <option value="-4_15">(UTC-05:00) Eastern Time (US &amp; Canada)</option>
+    <option value="-4_16">(UTC-05:00) Indiana (East)</option>
+    <option value="-4.5_17">(UTC-04:30) Caracas</option>
+    <option value="-4_18">(UTC-04:00) Asuncion</option>
+    <option value="-3_19">(UTC-04:00) Atlantic Time (Canada)</option>
+    <option value="-4_20">(UTC-04:00) Cuiaba</option>
+    <option value="-4_21">(UTC-04:00) Georgetown, La Paz, Manaus, San Juan</option>
+    <option value="-4_22">(UTC-04:00) Santiago</option>
+    <option value="-2.5_23">(UTC-03:30) Newfoundland</option>
+    <option value="-3_24">(UTC-03:00) Brasilia</option>
+    <option value="-3_25">(UTC-03:00) Buenos Aires</option>
+    <option value="-3_26">(UTC-03:00) Cayenne, Fortaleza</option>
+    <option value="-3_27">(UTC-03:00) Greenland</option>
+    <option value="-3_27">(UTC-03:00) Montevideo</option>
+    <option value="-3_29">(UTC-03:00) Salvador</option>
+    <option value="-2_30">(UTC-02:00) Coordinated Universal Time-02</option>
+    <option value="-1_31">(UTC-02:00) Mid-Atlantic - Old</option>
+    <option value="0_32">(UTC-01:00) Azores</option>
+    <option value="-1_33">(UTC-01:00) Cape Verde Is.</option>
+    <option value="1_34">(UTC) Casablanca</option>
+    <option value="0_35">(UTC) Coordinated Universal Time</option>
+    <option value="0_36">(UTC) Edinburgh, London</option>
+    <option value="1_37">(UTC+01:00) Edinburgh, London</option>
+    <option value="1_38">(UTC) Dublin, Lisbon</option>
+    <option value="0_39">(UTC) Monrovia, Reykjavik</option>
+    <option value="2_40">(UTC+01:00) Amsterdam, Berlin, Bern, Rome, Stockholm, Vienna</option>
+    <option value="2_0">(UTC+01:00) Belgrade, Bratislava, Budapest, Ljubljana, Prague</option>
+    <option value="2_1">(UTC+01:00) Brussels, Copenhagen, Madrid, Paris</option>
+    <option value="2_2">(UTC+01:00) Sarajevo, Skopje, Warsaw, Zagreb</option>
+    <option value="1_3">(UTC+01:00) West Central Africa</option>
+    <option value="1_4">(UTC+01:00) Windhoek</option>
+    <option value="3_5">(UTC+02:00) Athens, Bucharest</option>
+    <option value="3_6">(UTC+02:00) Beirut</option>
+    <option value="2_7">(UTC+02:00) Cairo</option>
+    <option value="3_8">(UTC+02:00) Damascus</option>
+    <option value="3_9">(UTC+02:00) E. Europe</option>
+    <option value="2_10">(UTC+02:00) Harare, Pretoria</option>
+    <option value="3_11">(UTC+02:00) Helsinki, Kyiv, Riga, Sofia, Tallinn, Vilnius</option>
+    <option value="3_12">(UTC+03:00) Istanbul</option>
+    <option value="3_13">(UTC+02:00) Jerusalem</option>
+    <option value="2_14">(UTC+02:00) Tripoli</option>
+    <option value="3_15">(UTC+03:00) Amman</option>
+    <option value="3_16">(UTC+03:00) Baghdad</option>
+    <option value="3_17">(UTC+02:00) Kaliningrad</option>
+    <option value="3_18">(UTC+03:00) Kuwait, Riyadh</option>
+    <option value="3_19">(UTC+03:00) Nairobi</option>
+    <option value="3_20">(UTC+03:00) Moscow, St. Petersburg, Volgograd, Minsk</option>
+    <option value="4_21">(UTC+04:00) Samara, Ulyanovsk, Saratov</option>
+    <option value="4.5_22">(UTC+03:30) Tehran</option>
+    <option value="4_23">(UTC+04:00) Abu Dhabi, Muscat</option>
+    <option value="5_24">(UTC+04:00) Baku</option>
+    <option value="4_25">(UTC+04:00) Port Louis</option>
+    <option value="4_26">(UTC+04:00) Tbilisi</option>
+    <option value="4_27">(UTC+04:00) Yerevan</option>
+    <option value="4.5_28">(UTC+04:30) Kabul</option>
+    <option value="5_29">(UTC+05:00) Ashgabat, Tashkent</option>
+    <option value="5_30">(UTC+05:00) Yekaterinburg</option>
+    <option value="5_31">(UTC+05:00) Islamabad, Karachi</option>
+    <option value="5.5_32">(UTC+05:30) Chennai, Kolkata, Mumbai, New Delhi</option>
+    <option value="5.5_33">(UTC+05:30) Sri Jayawardenepura</option>
+    <option value="5.75_34">(UTC+05:45) Kathmandu</option>
+    <option value="6_35">(UTC+06:00) Nur-Sultan (Astana)</option>
+    <option value="6_36">(UTC+06:00) Dhaka</option>
+    <option value="6.5_37">(UTC+06:30) Yangon (Rangoon)</option>
+    <option value="7_38">(UTC+07:00) Bangkok, Hanoi, Jakarta</option>
+    <option value="7_39">(UTC+07:00) Novosibirsk</option>
+    <option value="8_40">(UTC+08:00) Beijing, Chongqing, Hong Kong, Urumqi</option>
+    <option value="8_0">(UTC+08:00) Krasnoyarsk</option>
+    <option value="8_1">(UTC+08:00) Kuala Lumpur, Singapore</option>
+    <option value="8_2">(UTC+08:00) Perth</option>
+    <option value="8_3">(UTC+08:00) Taipei</option>
+    <option value="8_4">(UTC+08:00) Ulaanbaatar</option>
+    <option value="8_55">(UTC+08:00) Irkutsk</option>
+    <option value="9_6">(UTC+09:00) Osaka, Sapporo, Tokyo</option>
+    <option value="9_7">(UTC+09:00) Seoul</option>
+    <option value="9.5_8">(UTC+09:30) Adelaide</option>
+    <option value="9.5_9">(UTC+09:30) Darwin</option>
+    <option value="10_10">(UTC+10:00) Brisbane</option>
+    <option value="10_11">(UTC+10:00) Canberra, Melbourne, Sydney</option>
+    <option value="10_12">(UTC+10:00) Guam, Port Moresby</option>
+    <option value="10_13">(UTC+10:00) Hobart</option>
+    <option value="9_14">(UTC+09:00) Yakutsk</option>
+    <option value="11_15">(UTC+11:00) Solomon Is., New Caledonia</option>
+    <option value="11_16">(UTC+11:00) Vladivostok</option>
+    <option value="12_17">(UTC+12:00) Auckland, Wellington</option>
+    <option value="12_18">(UTC+12:00) Coordinated Universal Time+12</option>
+    <option value="12_19">(UTC+12:00) Fiji</option>
+    <option value="12_20">(UTC+12:00) Magadan</option>
+    <option value="13_0">(UTC+12:00) Petropavlovsk-Kamchatsky - Old</option>
+    <option value="13_1">(UTC+13:00) Nuku'alofa</option>
+    <option value="13_2">(UTC+13:00) Samoa</option>
+</select>
+      
+      </p>
+    </div>
+    <div class="modal-footer">
+      <a href="#!" class="modal-close waves-effect waves-green btn-flat" onclick='createTZList()'>Done</a>
+    </div>
+  </div>
+
+
+</body>
+
+<script>
+  var AI = {
+    show:function(){
+      $("body").append("<div class='overlay'> <span class='spinner'> </span></div>")
+    },
+    hide: function(){
+      $(".overlay").remove();
+    }
+  }
+
+    function start()
+    {
+      allTZList = JSON.parse(localStorage.getItem("tzs"))
+      if(allTZList === null)
+        {
+            allTZList = [];
+        }
+      generateClockList();
+      for(var i = 0; i < allTZList.length; i++){
+        $("#timezone option[value="+ allTZList[i] +"]").attr("selected", true) 
+      }
+
+      $('.modal').modal();
+      $('select').formSelect();
+    }
+
+    function goBack()
+    {
+      $("body").removeClass("details");
+      $("#tzList button").removeClass("selected")
+    }
+
+    function openDD()
+    {
+      AI.show();
+      setTimeout("AI.hide()",1200);
+      setTimeout(
+      function(){
+        $(".select-wrapper > input").click()
+        document.getElementById("modal1").style.top = "0";
+      }, 500);
+
+    }
+
+    var allTZList = [];
+    function createTZList()
+    {
+      allTZList = $('#timezone').val();
+      localStorage.setItem("tzs", JSON.stringify(allTZList));
+      generateClockList();
+    }
+
+    function generateClockList()
+    {
+      var markup = "";
+      for(var i = 0; i < allTZList.length; i++){
+        markup += 
+          "<button onclick='showClock("+ i +")'>" +
+             "<iframe src='clock.html#" + parseFloat(allTZList[i]) + "'></iframe>" +
+             "<p>" + $("#timezone option[value='"+ allTZList[i] +"']").html() + "<p>" +
+          "</button>"
+      }
+      document.getElementById("tzList").innerHTML = markup;
+    }
+
+    function showClock(index)
+    {
+      $("body").addClass("details")
+      $("#tzList button").removeClass("selected")
+      $("#tzList button:nth-of-type("+(index+1)+")").addClass("selected")
+      var offset = parseFloat(allTZList[index]);
+      var name = $("#timezone option[value='"+ allTZList[index] +"']").html() 
+      var markup = "<h1>" + name + "</h1>" +
+             "<iframe src='clock.html#" + parseFloat(allTZList[index]) + "'></iframe>";
+
+      document.getElementById("selectedClock").innerHTML = markup;
+    }
+</script>
+
+<style>
+#tzContainer{
+  width: 300px;
+  height: 100vh;
+  overflow:auto;
+  background: lightblue;
+}
+#selectedClock{
+  width: calc(100vw - 300px);
+  height: 100vh;
+  overflow:auto;
+  background: lightgray;
+  position: absolute;
+  top: 0;
+  right: 0;
+}
+#modal1{
+  width: 100vw;
+  height: 100vh;
+  overflow: hidden;
+  max-height: 100vh;
+}
+.modal-content{
+  width: 100vw;
+  height: 100vh;
+}
+.modal-footer{
+    bottom: 0;
+    position: fixed;
+}
+.dropdown-content{
+  box-shadow: none;
+}
+
+#tzList button{
+  max-height: 100px;
+  width: 100%;
+  border-radius: 0;
+  border:0;
+  box-shadow: 0px 0px 1px;
+}
+
+#tzList button p{
+  float:right;
+  width: calc(100% - 100px);
+  margin-top: -280px;
+}
+
+#tzList button iframe{
+  border:0;
+  margin:0;
+  transform: scale(.3);
+  height: 310px;
+  width: 310px;
+  transform-origin: 0 0;
+  margin-left: 10px;
+    float: left;
+}
+
+#selectedClock h1{
+  font-size: 25px;
+  text-align: center;
+}
+
+#selectedClock iframe{
+  width: 100%;
+  height: 400px;
+  border:0;
+}
+
+.selected{
+  background:#2bbbad;
+}
+
+#backButton{
+  display: none;
+}
+
+
+.overlay{
+  width: 100vw;
+  height: 100vh;
+  background: rgba(0,0,0,.3);
+  position: fixed;
+  left: 0;
+  top: 0;
+  z-index: 9999999999;
+}
+
+
+@keyframes spinning{
+  0%{
+    transform: rotate(0deg);
+  }
+  100%{
+    transform: rotate(360deg);
+  }
+}
+
+.spinner{
+  height: 100px;
+  width: 100px;
+  background-image: url(ai.png);
+  position: fixed;
+  top: calc(50% - 50px);
+  left: calc(50% - 50px);
+  background-size: contain;
+  animation: spinning 1s infinite linear;;
+}
+
+@media (max-width: 500px) {
+  #tzContainer{
+    width: 100%;
+  }
+  #selectedClock{
+    width: 100%;
+    display: none;
+  }
+  #editButton{
+    min-width: 100vw;
+  }
+  body.details #tzContainer{
+    display: none;
+  }
+  body.details #selectedClock{
+    display: block;
+  }
+  body.details #backButton{
+    display: block;
+  }
+}
+
+
+
+</style>
+</html>
