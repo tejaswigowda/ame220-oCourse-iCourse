@@ -48,7 +48,7 @@
       var hash = window.location.hash.replace("#","");
       allImages = hash.split(",");
       
-      if(allImages[allImages.length] == "sliding"){
+      if(allImages[allImages.length-1] == "sliding"){
         aniType = "sliding";
       }
       allImages.pop();
@@ -66,10 +66,12 @@
       document.getElementById("numContainer").innerHTML = markup;
 
       if(aniType == "fading"){
-        // complete this
+        allImgObjs[i].style.opacity = "1";
+        allNumObjs[i].className = "num active";
       }
       else{
-        // complete this
+        allImgOjs[i].style.opacity = "0";
+        allNumObjs[i].className = "num";
       }
       goToCurrentSlide();
     }
@@ -96,11 +98,11 @@
     }
 
     var goToCurrentSlide = function(){
-      if(aniType == "fading"){
-        // complete this
+      if(aniType == "sliding"){
+        allImgObjs[i].style.display = "block";
       }
       else{
-        // complete this
+        allImgObjs[i].style.display = "none";
       }
     }
 
