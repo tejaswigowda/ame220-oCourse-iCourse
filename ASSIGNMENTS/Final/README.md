@@ -1,5 +1,4 @@
 # Final
-`Due May 2, before midnight`
 
 
 ## Task
