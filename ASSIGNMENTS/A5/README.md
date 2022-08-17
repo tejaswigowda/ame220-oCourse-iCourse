@@ -1,5 +1,4 @@
 # Assignment 5
-`Due Apr 15 before midnight`
 
 ## Task
 
