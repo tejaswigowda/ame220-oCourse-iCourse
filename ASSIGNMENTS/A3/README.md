@@ -1,5 +1,4 @@
 # Assignment 3
-`Due Apr 1, before midnight`
 
 ## Tasks
 1. Convert to rgb format (4 pts.)
