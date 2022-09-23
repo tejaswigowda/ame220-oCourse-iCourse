@@ -48,7 +48,7 @@
       var hash = window.location.hash.replace("#","");
       allImages = hash.split(",");
       
-      if(allImages[allImages.length] == "sliding"){
+      if(allImages[allImages.length-1] == "sliding"){
         aniType = "sliding";
       }
       allImages.pop();
